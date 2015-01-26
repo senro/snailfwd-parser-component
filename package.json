@@ -1,0 +1,14 @@
+{
+  "name": "snailfwd-parser-component",
+  "version": "0.0.1",
+  "description": "parse custom label",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "snailfwd-parser-component"
+  ],
+  "author": "senro",
+  "license": "BSD"
+}
