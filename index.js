@@ -38,7 +38,7 @@ module.exports = function(content, file, conf){
                 name='(.)*';
                 break;
         }
-        return new RegExp('<!--component\\(("|\')('+name+')("|\')\\)-->','g');
+        return new RegExp('<!--load\\(("|\')('+name+')("|\')\\)-->','g');
     }
     function requireLabelReg(name){
         switch (name){
