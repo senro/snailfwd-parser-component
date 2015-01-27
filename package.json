@@ -6,7 +6,7 @@
   "homepage":"https://github.com/senro/snailfwd-parser-component/",
   "repository": {
      "type": "git",
-     "url": "git@github.com:senro/snailfwd-parser-component.git"
+     "url": "-b spm git@github.com:senro/snailfwd-parser-component.git"
   },
   "bugs": {
     "url": "https://github.com/senro/snailfwd-parser-component/issues"
