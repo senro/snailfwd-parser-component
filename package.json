@@ -1,12 +1,12 @@
 {
   "name": "snailfwd-parser-component",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "description": "parse snailfwd custom label",
   "main": "index.js",
   "homepage":"https://github.com/senro/snailfwd-parser-component/",
   "repository": {
      "type": "git",
-     "url": "-b spm git@github.com:senro/snailfwd-parser-component.git"
+     "url": "git@github.com:senro/snailfwd-parser-component.git"
   },
   "bugs": {
     "url": "https://github.com/senro/snailfwd-parser-component/issues"

@@ -8,11 +8,15 @@ module.exports = function(content, file, conf){
 
     var componentLabels=content.match(componentLabelReg('**')),
         requireLabels=content.match(requireLabelReg('**')),
-        mainJs=parseTplMainJs(content),
+        mainJs,
         components=[],
         requires=[];
+
+    if(file.rExt=='.html'&&componentLabels){
+        mainJs=parseTplMainJs(content,file);
+    }
+
     if(componentLabels){
-        console.log('componentLabels:'+componentLabels);
         for(var i=0;i<componentLabels.length;i++){
             var componentLabel=componentLabels[i];//<!--component("menu")-->
             components.push(parseComponentName(componentLabel));
@@ -23,7 +27,7 @@ module.exports = function(content, file, conf){
         }
         file.componentsReg=componentLabelReg;
     }
-    if(file.rExt!='js'&&requireLabels){
+    if(file.rExt!='.js'&&requireLabels){
         //fis 系统默认会去检测js的require情况，所以就不再处理了，以免重复
         for(var i=0;i<requireLabels.length;i++){
             var requireLabel=requireLabels[i];//<!--component("menu")-->
@@ -55,7 +59,7 @@ module.exports = function(content, file, conf){
             return str.split('\'')[1];
         }
     }
-    function parseTplMainJs(content){
+    function parseTplMainJs(content,file){
         /*
          * 分析带有data-main属性的标签，如：<script type="text/javascript" data-main='true' src="static/index/index.js"></script>
          * 如果该标签里有src则返回src，如果没有则返回‘self’
@@ -76,7 +80,7 @@ module.exports = function(content, file, conf){
                 return 'self';
             }
         }else{
-            console.log('this tpl has not data-main js!');
+            console.log(file.id+' has not data-main js!');
             return false;
         }
         function parseSrc(src){
